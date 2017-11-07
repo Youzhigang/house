@@ -2,12 +2,6 @@ const path = require('path')
 
 module.exports = {
   /**
-   * webpack entry name
-   * @type {String}
-   */
-  entryName: 'main.js',
-
-  /**
    * webpack app project path
    * @type {String}
    */
