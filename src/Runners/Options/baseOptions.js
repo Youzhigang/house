@@ -2,10 +2,9 @@ const path = require('path')
 
 module.exports = {
   /**
-   * webpack app project path
    * @type {String}
    */
-  appPath: path.join(process.cwd(), 'src'),
+  appDirectory: path.join(process.cwd(), 'src'),
 
   /**
    * project root path

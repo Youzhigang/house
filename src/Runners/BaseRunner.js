@@ -22,7 +22,7 @@ class BaseRunner {
    */
   setBaseWebpack () {
     this.webpackBuilder.merge({entry: {
-      app: this.path.join(this.options.appPath, 'main.js')
+      app: this.path.join(this.options.appDirectory, 'main.js')
     }})
 
     this.webpackBuilder.merge({output: {
