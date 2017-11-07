@@ -7,12 +7,6 @@ module.exports = {
   appDirectory: path.join(process.cwd(), 'src'),
 
   /**
-   * project root path
-   * @type {String}
-   */
-  rootPath: path.join(process.cwd()),
-
-  /**
    * test path
    * @type {String}
    */
