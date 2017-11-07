@@ -28,7 +28,7 @@ class BaseRunner {
     this.webpackBuilder.merge({output: {
       path: this.path.join(this.options.builtDirectory),
       filename: '[name].js',
-      publicPath: path.join(this.options.assetsPublicPath)
+      publicPath: this.options.assetsPublicPath
     }})
 
     this.webpackBuilder.addExtensions(['.js', '.vue', '.json'])
