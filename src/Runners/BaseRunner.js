@@ -25,6 +25,16 @@ class BaseRunner {
     return this
   }
 
+  setProxy (proxyMaps) {
+    return this
+  }
+
+  extend (callback) {
+    if (!this.initialized) this.initialization()
+    callback.call(this, this)
+    return this
+  }
+
   /**
    * Set base webpack builder and config
    *
