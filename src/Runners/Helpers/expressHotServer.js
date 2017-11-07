@@ -51,7 +51,7 @@ module.exports = runner => {
       runner.options.publicPath,
       runner.options.assetsPath
     ), express.static(path.join(
-      runner.options.appDirectory,
+      runner.options.moduleDirectory,
       runner.options.assetsPath
     )))
 
