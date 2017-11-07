@@ -4,11 +4,11 @@ const ora = require('ora')
 const rm = require('rimraf')
 const chalk = require('chalk')
 
-module.exports = ({ webpack, publicDirectory, assetsSubDirectory }) => {
+module.exports = ({ webpack, builtDirectory, assetsSubDirectory }) => {
   var spinner = ora('building for production...')
   spinner.start()
 
-  rm(path.join(publicDirectory, assetsSubDirectory), err => {
+  rm(path.join(builtDirectory, assetsSubDirectory), err => {
     if (err) throw err
     webpackCli(webpack, function (err, stats) {
       spinner.stop()

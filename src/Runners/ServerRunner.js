@@ -16,7 +16,7 @@ class PresetationRunner extends BaseRunner {
       useExpressProxy(app, this.options.proxyTable)
       app.use(connectHistoryApiFallback())
       app.get('/static', express.static('./example/dist/static'))
-      app.get('*', express.static(this.options.publicDirectory))
+      app.get('*', express.static(this.options.builtDirectory))
     })
 
     this.expressBuilder.listeningMessage = chalk.yellow(

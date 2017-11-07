@@ -34,7 +34,7 @@ module.exports = {
    * build dist path
    * @type {String}
    */
-  publicDirectory: path.join(process.cwd(), 'dist'),
+  builtDirectory: path.join(process.cwd(), 'dist'),
 
   /**
    * dist/static
