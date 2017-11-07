@@ -56,14 +56,14 @@ class ProductionRunner extends BaseRunner {
   }
 
   parseAssetsFilename (relativePath) {
-    return this.path.posix.join(this.options.assetsSubDirectory, relativePath)
+    return this.path.posix.join(this.options.builtAssetsDirectory, relativePath)
   }
 
   run () {
     return require('../Utils/buildProd').call(this, {
       webpack: this.webpackBuilder.create(),
       builtDirectory: this.options.builtDirectory,
-      assetsSubDirectory: this.options.assetsSubDirectory
+      builtAssetsDirectory: this.options.builtAssetsDirectory
     })
   }
 }

@@ -40,7 +40,7 @@ module.exports = {
    * dist/static
    * @type {String}
    */
-  assetsSubDirectory: 'static',
+  builtAssetsDirectory: 'static',
 
   /**
    * url root path

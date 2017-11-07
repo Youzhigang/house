@@ -5,7 +5,7 @@ module.exports = runner => {
   return new CopyWebpackPlugin([
     {
       from: runner.options.cacheDirectory,
-      to: runner.options.assetsSubDirectory,
+      to: runner.options.builtAssetsDirectory,
       ignore: ['.*']
     }
   ])

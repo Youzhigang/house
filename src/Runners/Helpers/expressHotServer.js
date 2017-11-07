@@ -48,7 +48,7 @@ module.exports = runner => {
 
     // serve pure static assets
     const assetsStaticPath = path.posix.join(
-      runner.options.assetsPublicPath, runner.options.assetsSubDirectory)
+      runner.options.assetsPublicPath, runner.options.builtAssetsDirectory)
     app.use(assetsStaticPath, express.static(runner.options.cacheDirectory))
 
     devMiddleware.waitUntilValid(() => {

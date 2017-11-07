@@ -1,6 +1,6 @@
 module.exports = runner => {
   const name = runner.path.posix.join(
-    runner.options.assetsSubDirectory, 'fonts/[name].[hash:7].[ext]')
+    runner.options.builtAssetsDirectory, 'fonts/[name].[hash:7].[ext]')
 
   return {
     test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
