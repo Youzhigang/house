@@ -16,7 +16,7 @@ module.exports = {
    * static path
    * @type {String}
    */
-  staticPath: path.join(process.cwd(), 'static'),
+  cacheDirectory: path.join(process.cwd(), 'static'),
 
   /**
    * sass resources
