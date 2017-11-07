@@ -99,11 +99,5 @@ module.exports = {
   /**
    * enable human rule
    */
-  enableHumanRule: true,
-
-  /**
-   * environment in process.env
-   * @type {Object}
-   */
-  env: {}
+  enableHumanRule: true
 }
