@@ -4,7 +4,7 @@ module.exports = runner => {
   // https://github.com/ampedandwired/html-webpack-plugin
   return new HtmlWebpackPlugin({
     filename: 'index.html',
-    template: runner.options.publicFile,
+    template: runner.options.indexFile,
     inject: true
   })
 }
