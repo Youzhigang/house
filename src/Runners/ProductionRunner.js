@@ -16,7 +16,9 @@ class ProductionRunner extends BaseRunner {
    * @public setProductionWebpack
    * @return {this}
    */
-  setProductionWebpack () {
+  initializeWebpack () {
+    super.initializeWebpack()
+
     this.webpackBuilder.merge({
       devtool: false
     })
@@ -60,7 +62,6 @@ class ProductionRunner extends BaseRunner {
 
   run () {
     super.run()
-    this.setProductionWebpack()
     return require('../Utils/buildProd').call(this, {
       webpack: this.webpackBuilder.create(),
       builtDirectory: this.options.builtDirectory,

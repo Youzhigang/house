@@ -7,6 +7,12 @@ const ExpressBuilder = require('../Builders/ExpressBuilder')
 const useExpressProxy = require('./Helpers/useExpressProxy')
 
 class PresetationRunner extends BaseRunner {
+  initialization () {
+    super.initialization()
+    this.setExpress()
+    return this
+  }
+
   /**
    * [setExpress description]
    */
@@ -41,7 +47,6 @@ class PresetationRunner extends BaseRunner {
    */
   run () {
     super.run()
-    this.setExpress()
     this.expressBuilder.listen(this.options.port)
   }
 }

@@ -1,13 +1,20 @@
 const BaseRunner = require('./BaseRunner')
 
 class DevelopmentRunner extends BaseRunner {
+  initialization () {
+    super.initialization()
+    this.setExpress()
+    return this
+  }
+
   /**
    * Extend development webpack config
    *
    * @public setDevelopmentWebpack
    * @return {this}
    */
-  setDevelopmentWebpack () {
+  initializeWebpack () {
+    super.initializeWebpack()
     // Extend webpack.entry.app, add webpack-hot-middleware file
     this.webpackBuilder.extend(webpack => {
       Object.keys(webpack.entry).forEach(name => {
@@ -43,8 +50,6 @@ class DevelopmentRunner extends BaseRunner {
    */
   run () {
     super.run()
-    this.setDevelopmentWebpack()
-    this.setExpress()
     this.expressBuilder.listen(this.options.port)
   }
 }
