@@ -2,14 +2,6 @@ const BaseRunner = require('./BaseRunner')
 
 class DevelopmentRunner extends BaseRunner {
   /**
-   * @constructor
-   */
-  constructor (...args) {
-    super(...args)
-    this.setDevelopmentWebpack()
-  }
-
-  /**
    * Extend development webpack config
    *
    * @public setDevelopmentWebpack
@@ -50,6 +42,8 @@ class DevelopmentRunner extends BaseRunner {
    * @return {Object}
    */
   run () {
+    super.run()
+    this.setDevelopmentWebpack()
     this.setExpress()
     this.expressBuilder.listen(this.options.port)
   }

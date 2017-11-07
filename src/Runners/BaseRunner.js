@@ -10,9 +10,19 @@ class BaseRunner {
    */
   constructor (options) {
     this.path = path
-    this.options = Object.assign({}, baseOptions, options)
+    this.options = baseOptions
+    this.appEnvs = {}
     this.webpackBuilder = new WebpackBuilder()
-    this.setBaseWebpack()
+  }
+
+  setOptions (options) {
+    this.options = Object.assign({}, this.options, options)
+    return this
+  }
+
+  setAppEnvs (appEnvs) {
+    this.appEnvs = Object.assign({}, this.appEnvs, appEnvs)
+    return this
   }
 
   /**
@@ -47,6 +57,8 @@ class BaseRunner {
     }
 
     this.webpackBuilder.addPlugin(this.use(require('../Plugins/definePlugin')))
+
+    return this
   }
 
   /**
@@ -69,7 +81,7 @@ class BaseRunner {
    * @return {Object} webpack config
    */
   run () {
-    return this.webpackBuilder.create()
+    return this.setBaseWebpack()
   }
 }
 

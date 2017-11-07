@@ -5,10 +5,9 @@ class ProductionRunner extends BaseRunner {
   /**
    * @constructor
    */
-  constructor (options, ...args) {
-    options = Object.assign({}, productionOptions, options)
-    super(options, ...args)
-    this.setProductionWebpack()
+  constructor (...args) {
+    super(...args)
+    this.options = Object.assign({}, this.options, productionOptions)
   }
 
   /**
@@ -60,6 +59,8 @@ class ProductionRunner extends BaseRunner {
   }
 
   run () {
+    super.run()
+    this.setProductionWebpack()
     return require('../Utils/buildProd').call(this, {
       webpack: this.webpackBuilder.create(),
       builtDirectory: this.options.builtDirectory,

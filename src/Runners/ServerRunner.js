@@ -40,6 +40,7 @@ class PresetationRunner extends BaseRunner {
    * @return {Object}
    */
   run () {
+    super.run()
     this.setExpress()
     this.expressBuilder.listen(this.options.port)
   }
