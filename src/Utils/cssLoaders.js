@@ -72,7 +72,7 @@ module.exports = function (options) {
       //   loader: 'sass-resources-loader',
       //   options: {
       //     // must choose a scss file
-      //     resources: options.sassResources
+      //     resources: options.sassResourceFile
       //   }
       // }
     ]),

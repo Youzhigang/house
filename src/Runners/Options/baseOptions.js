@@ -22,7 +22,7 @@ module.exports = {
    * sass resources
    * @type {String|Array}
    */
-  sassResources: undefined,
+  sassResourceFile: undefined,
 
   /**
    * html index.html file path
