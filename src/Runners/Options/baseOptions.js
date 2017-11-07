@@ -10,7 +10,7 @@ module.exports = {
    * test path
    * @type {String}
    */
-  testPath: path.join(process.cwd(), 'test'),
+  testDirectory: path.join(process.cwd(), 'test'),
 
   /**
    * static path

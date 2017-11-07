@@ -4,7 +4,7 @@ module.exports = runner => {
     loader: 'babel-loader',
     include: [
       runner.path.join(runner.options.appDirectory),
-      runner.path.join(runner.options.testPath)
+      runner.path.join(runner.options.testDirectory)
     ]
   }
 }
