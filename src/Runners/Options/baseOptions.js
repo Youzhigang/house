@@ -54,6 +54,7 @@ module.exports = {
 
   /**
    * http port
+   * @private
    * @type {Number}
    */
   port: process.env.PORT || 8080,
@@ -90,6 +91,7 @@ module.exports = {
 
   /**
    * analyzer report
+   * @private
    * @type {Boolean}
    */
   bundleAnalyzerReport: process.env.npm_config_report,
