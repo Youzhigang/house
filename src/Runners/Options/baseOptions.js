@@ -13,12 +13,6 @@ module.exports = {
   testDirectory: path.join(process.cwd(), 'test'),
 
   /**
-   * static path
-   * @type {String}
-   */
-  cacheDirectory: path.join(process.cwd(), 'static'),
-
-  /**
    * sass resources
    * @type {String|Array}
    */
