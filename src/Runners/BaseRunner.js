@@ -26,7 +26,7 @@ class BaseRunner {
     }})
 
     this.webpackBuilder.merge({output: {
-      path: this.path.join(this.options.assetsRoot),
+      path: this.path.join(this.options.publicDirectory),
       filename: '[name].js',
       publicPath: path.join(this.options.assetsPublicPath)
     }})

@@ -24,7 +24,7 @@ class ProductionRunner extends BaseRunner {
 
     this.webpackBuilder.merge({
       output: {
-        path: this.options.assetsRoot,
+        path: this.options.publicDirectory,
         filename: this.parseAssetsFilename('js/[name].[chunkhash].js'),
         chunkFilename: this.parseAssetsFilename('js/[id].[chunkhash].js')
       }
@@ -62,7 +62,7 @@ class ProductionRunner extends BaseRunner {
   run () {
     return require('../Utils/buildProd').call(this, {
       webpack: this.webpackBuilder.create(),
-      assetsRoot: this.options.assetsRoot,
+      publicDirectory: this.options.publicDirectory,
       assetsSubDirectory: this.options.assetsSubDirectory
     })
   }
