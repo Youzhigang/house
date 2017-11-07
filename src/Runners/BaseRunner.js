@@ -13,6 +13,7 @@ class BaseRunner {
     this.options = baseOptions
     this.appEnvs = {}
     this.webpackBuilder = new WebpackBuilder()
+    this.initialized = false  // 用于判断是否初始化
   }
 
   setOptions (options) {
@@ -35,12 +36,18 @@ class BaseRunner {
     return this
   }
 
+  initialization () {
+    this.initialized = true  // 完成初始化
+    this.initializeWebpack()
+    return this
+  }
+
   /**
    * Set base webpack builder and config
    *
    * @public setBaseWebpack
    */
-  setBaseWebpack () {
+  initializeWebpack () {
     this.webpackBuilder.merge({entry: {
       app: this.path.join(this.options.appDirectory, 'main.js')
     }})
@@ -91,7 +98,7 @@ class BaseRunner {
    * @return {Object} webpack config
    */
   run () {
-    return this.setBaseWebpack()
+    if (!this.initialized) this.initialization()
   }
 }
 
