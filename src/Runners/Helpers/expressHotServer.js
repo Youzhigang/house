@@ -47,9 +47,13 @@ module.exports = runner => {
     app.use(hotMiddleware)
 
     // serve pure static assets
-    const assetsStaticPath = path.posix.join(
-      runner.options.publicPath, runner.options.builtAssetsDirectory)
-    app.use(assetsStaticPath, express.static(runner.options.cacheDirectory))
+    app.use(path.posix.join(
+      runner.options.publicPath,
+      runner.options.builtAssetsDirectory
+    ), express.static(path.join(
+      runner.options.appDirectory,
+      runner.options.builtAssetsDirectory
+    )))
 
     devMiddleware.waitUntilValid(() => {
       console.log(chalk.yellow(`I are ready. open http://localhost:${runner.options.port} to see me.`))

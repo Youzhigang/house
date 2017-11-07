@@ -1,5 +1,6 @@
 const express = require('express')
 const chalk = require('chalk')
+const path = require('path')
 const connectHistoryApiFallback = require('connect-history-api-fallback')
 const BaseRunner = require('./BaseRunner')
 const ExpressBuilder = require('../Builders/ExpressBuilder')
@@ -15,7 +16,13 @@ class PresetationRunner extends BaseRunner {
     this.expressBuilder.addBeforeListenQueue(app => {
       useExpressProxy(app, this.options.proxyTable)
       app.use(connectHistoryApiFallback())
-      app.get('/static', express.static('./example/dist/static'))
+      app.use(path.posix.join(
+        this.options.publicPath,
+        this.options.builtAssetsDirectory
+      ), express.static(path.join(
+        this.options.builtDirectory,
+        this.options.builtAssetsDirectory
+      )))
       app.get('*', express.static(this.options.builtDirectory))
     })
 
