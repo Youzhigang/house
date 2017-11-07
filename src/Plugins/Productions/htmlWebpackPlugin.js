@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = runner => {
   return new HtmlWebpackPlugin({
     filename: 'index.html',
-    template: runner.options.templateIndex,
+    template: runner.options.publicFile,
     inject: true,
     minify: {
       removeComments: true,

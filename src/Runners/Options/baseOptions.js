@@ -28,7 +28,7 @@ module.exports = {
    * html index.html file path
    * @type {String}
    */
-  templateIndex: path.join(process.cwd(), 'index.html'),
+  publicFile: path.join(process.cwd(), 'index.html'),
 
   /**
    * build dist path
