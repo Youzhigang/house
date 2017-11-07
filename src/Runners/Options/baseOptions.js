@@ -40,6 +40,7 @@ module.exports = {
 
   /**
    * url root path
+   * @private
    * @type {String}
    */
   publicPath: '/',
