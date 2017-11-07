@@ -18,10 +18,10 @@ class PresetationRunner extends BaseRunner {
       app.use(connectHistoryApiFallback())
       app.use(path.posix.join(
         this.options.publicPath,
-        this.options.builtAssetsDirectory
+        this.options.assetsPath
       ), express.static(path.join(
         this.options.builtDirectory,
-        this.options.builtAssetsDirectory
+        this.options.assetsPath
       )))
       app.get('*', express.static(this.options.builtDirectory))
     })

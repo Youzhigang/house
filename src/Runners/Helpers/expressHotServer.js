@@ -49,10 +49,10 @@ module.exports = runner => {
     // serve pure static assets
     app.use(path.posix.join(
       runner.options.publicPath,
-      runner.options.builtAssetsDirectory
+      runner.options.assetsPath
     ), express.static(path.join(
       runner.options.appDirectory,
-      runner.options.builtAssetsDirectory
+      runner.options.assetsPath
     )))
 
     devMiddleware.waitUntilValid(() => {

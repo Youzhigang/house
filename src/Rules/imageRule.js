@@ -1,6 +1,6 @@
 module.exports = runner => {
   const name = runner.path.posix.join(
-    runner.options.builtAssetsDirectory, 'img/[name].[hash:7].[ext]')
+    runner.options.assetsPath, 'img/[name].[hash:7].[ext]')
 
   return {
     test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
