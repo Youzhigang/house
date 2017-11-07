@@ -18,7 +18,7 @@ module.exports = runner => {
     const compiler = webpack(runner.webpackBuilder.create())
 
     const devMiddleware = webpackDevMiddleware(compiler, {
-      publicPath: runner.options.assetsPublicPath,
+      publicPath: runner.options.publicPath,
       quiet: true
     })
 
@@ -48,7 +48,7 @@ module.exports = runner => {
 
     // serve pure static assets
     const assetsStaticPath = path.posix.join(
-      runner.options.assetsPublicPath, runner.options.builtAssetsDirectory)
+      runner.options.publicPath, runner.options.builtAssetsDirectory)
     app.use(assetsStaticPath, express.static(runner.options.cacheDirectory))
 
     devMiddleware.waitUntilValid(() => {

@@ -46,7 +46,7 @@ module.exports = {
    * url root path
    * @type {String}
    */
-  assetsPublicPath: '/',
+  publicPath: '/',
 
   /**
    * proxy map table
