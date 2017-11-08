@@ -22,12 +22,12 @@ class PresetationRunner extends BaseRunner {
         this.options.publicPath,
         this.options.assetsPath
       ), express.static(path.join(
-        this.options.moduleDirectory
+        this.options.moduleDirectory,
         this.options.builtPath,
         this.options.assetsPath
       )))
       app.get('*', express.static(path(
-        this.options.moduleDirectory
+        this.options.moduleDirectory,
         this.options.builtPath
       )))
     })
