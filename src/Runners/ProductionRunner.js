@@ -25,7 +25,7 @@ class ProductionRunner extends BaseRunner {
 
     this.webpackBuilder.deepMerge({
       output: {
-        path: this.path(
+        path: this.path.join(
           this.options.moduleDirectory,
           this.options.builtPath
         ),
@@ -67,7 +67,7 @@ class ProductionRunner extends BaseRunner {
     super.run()
     return require('../Utils/buildProd').call(this, {
       webpack: this.webpackBuilder.create(),
-      builtDirectory: this.path(
+      builtDirectory: this.path.join(
         this.options.moduleDirectory,
         this.options.builtPath
       ),

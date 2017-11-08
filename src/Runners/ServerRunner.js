@@ -26,7 +26,7 @@ class PresetationRunner extends BaseRunner {
         this.options.builtPath,
         this.options.assetsPath
       )))
-      app.get('*', express.static(path(
+      app.get('*', express.static(path.join(
         this.options.moduleDirectory,
         this.options.builtPath
       )))
