@@ -1,6 +1,5 @@
-const path = require('path')
 const express = require('express')
-const ExpressBuilder = require('../../Builders/ExpressBuilder')
+const path = require('path')
 const webpack = require('webpack')
 const webpackDevMiddleware = require('webpack-dev-middleware')
 const webpackHotMiddleware = require('webpack-hot-middleware')
@@ -9,7 +8,6 @@ const chalk = require('chalk')
 const useExpressProxy = require('./useExpressProxy')
 
 module.exports = runner => {
-  runner.expressBuilder = new ExpressBuilder()
   runner.expressBuilder.listeningMessage = chalk.yellow(
     'Hello, I\'am Fresh house. The development server is starting......wait me.'
   )

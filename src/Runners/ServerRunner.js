@@ -7,17 +7,13 @@ const ExpressBuilder = require('../Builders/ExpressBuilder')
 const useExpressProxy = require('./Helpers/useExpressProxy')
 
 class PresetationRunner extends BaseRunner {
-  initialization () {
-    super.initialization()
-    this.setExpress()
-    return this
+  constructor (...args) {
+    super(...args)
+    this.expressBuilder = new ExpressBuilder()
   }
 
-  /**
-   * [setExpress description]
-   */
-  setExpress () {
-    this.expressBuilder = new ExpressBuilder()
+  initialization () {
+    super.initialization()
 
     this.expressBuilder.addBeforeListenQueue(app => {
       useExpressProxy(app, this.options.proxyTable)

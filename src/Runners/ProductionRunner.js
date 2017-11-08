@@ -16,8 +16,8 @@ class ProductionRunner extends BaseRunner {
    * @public setProductionWebpack
    * @return {this}
    */
-  initializeWebpack () {
-    super.initializeWebpack()
+  initialization () {
+    super.initialization()
 
     this.webpackBuilder.merge({
       devtool: false

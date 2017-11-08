@@ -1,20 +1,16 @@
+const express = require('express')
 const BaseRunner = require('./BaseRunner')
+const ExpressBuilder = require('../Builders/ExpressBuilder')
 
 class DevelopmentRunner extends BaseRunner {
-  initialization () {
-    super.initialization()
-    this.setExpress()
-    return this
+  constructor (...args) {
+    super(...args)
+    this.expressBuilder = new ExpressBuilder()
   }
 
-  /**
-   * Extend development webpack config
-   *
-   * @public setDevelopmentWebpack
-   * @return {this}
-   */
-  initializeWebpack () {
-    super.initializeWebpack()
+  initialization () {
+    super.initialization()
+
     // Extend webpack.entry.app, add webpack-hot-middleware file
     this.webpackBuilder.extend(webpack => {
       Object.keys(webpack.entry).forEach(name => {
@@ -35,11 +31,9 @@ class DevelopmentRunner extends BaseRunner {
       this.use(require('../Plugins/Developments/FriendlyErrorsPlugin'))
     ])
 
-    return this
-  }
-
-  setExpress () {
     this.use(require('./Helpers/expressHotServer'))
+
+    return this
   }
 
   /**
