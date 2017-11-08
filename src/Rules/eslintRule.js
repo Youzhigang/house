@@ -5,7 +5,7 @@ module.exports = runner => {
     enforce: 'pre',
     include: [
       runner.path.join(runner.options.moduleDirectory, runner.options.appPath),
-      runner.path.join(runner.options.testDirectory)
+      runner.path.join(runner.options.moduleDirectory, runner.options.testPath)
     ],
     options: {
       formatter: require('eslint-friendly-formatter'),
