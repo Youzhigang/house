@@ -4,7 +4,7 @@ module.exports = runner => {
     loader: 'eslint-loader',
     enforce: 'pre',
     include: [
-      runner.path.join(runner.options.appDirectory),
+      runner.path.join(runner.options.moduleDirectory, runner.options.appPath),
       runner.path.join(runner.options.testDirectory)
     ],
     options: {

@@ -85,7 +85,11 @@ class BaseRunner {
     this.initialized = true  // 完成初始化
 
     this.webpackBuilder.merge({entry: {
-      app: this.path.join(this.options.appDirectory, 'main.js')
+      app: this.path.join(
+        this.options.moduleDirectory,
+        this.options.appPath,
+        'main.js'
+      )
     }})
 
     this.webpackBuilder.merge({output: {
