@@ -77,7 +77,7 @@ module.exports = {
    * @private
    * @type {Boolean}
    */
-  bundleAnalyzerReport: process.env.npm_config_report,
+  bundleAnalyzerReport: process.env.BUNDLE_REPORT || process.env.npm_config_report,
 
   /**
    * enable human rule
