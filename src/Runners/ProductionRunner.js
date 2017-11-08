@@ -23,7 +23,7 @@ class ProductionRunner extends BaseRunner {
       devtool: false
     })
 
-    this.webpackBuilder.merge({
+    this.webpackBuilder.deepMerge({
       output: {
         path: this.options.builtDirectory,
         filename: this.parseAssetsFilename('js/[name].[chunkhash].js'),
