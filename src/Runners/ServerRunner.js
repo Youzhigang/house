@@ -16,7 +16,7 @@ class PresetationRunner extends BaseRunner {
     super.initialization()
 
     this.expressBuilder.addBeforeListenQueue(app => {
-      useExpressProxy(app, this.options.proxyTable)
+      useExpressProxy(app, this.proxyMaps)
       app.use(connectHistoryApiFallback())
       app.use(path.posix.join(
         this.options.publicPath,

@@ -32,7 +32,7 @@ module.exports = runner => {
       })
     })
 
-    useExpressProxy(app, runner.options.proxyTable)
+    useExpressProxy(app, runner.proxyMaps)
 
     // handle fallback for HTML5 history API
     app.use(connectHistoryApiFallback())
