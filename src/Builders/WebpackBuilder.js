@@ -1,3 +1,5 @@
+const deepMerge = require('webpack-merge')
+
 class WebpackBuilder {
   /**
    * @constructor
@@ -33,6 +35,16 @@ class WebpackBuilder {
    */
   merge (fields) {
     this.webpack = Object.assign({}, this.webpack, fields)
+    return this
+  }
+
+  /**
+   * Deep merge fields to webpack
+   * @param  {Object} fields
+   * @return {this}
+   */
+  deepMerge (fields) {
+    this.webpack = deepMerge(this.webpack, fields)
     return this
   }
 
