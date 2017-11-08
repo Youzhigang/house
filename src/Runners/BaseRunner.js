@@ -64,22 +64,24 @@ class BaseRunner {
   }
 
   /**
+   * Call some function,
+   * and send this to them for using context and methods
+   * @public use
+   * @param  {Function} callback
+   * @return {*} Callback call return
+   */
+  use (callback) {
+    return callback.call(this, this)
+  }
+
+  /**
    * Initialization method
    * @public initialization
    * @return {this}
    */
   initialization () {
     this.initialized = true  // 完成初始化
-    this.initializeWebpack()
-    return this
-  }
 
-  /**
-   * Set base webpack builder and config
-   * @protected setBaseWebpack
-   * @return {this}
-   */
-  initializeWebpack () {
     this.webpackBuilder.merge({entry: {
       app: this.path.join(this.options.appDirectory, 'main.js')
     }})
@@ -108,17 +110,6 @@ class BaseRunner {
     this.webpackBuilder.addPlugin(this.use(require('../Plugins/definePlugin')))
 
     return this
-  }
-
-  /**
-   * Call some function,
-   * and send this to them for using context and methods
-   * @public use
-   * @param  {Function} callback
-   * @return {*} Callback call return
-   */
-  use (callback) {
-    return callback.call(this, this)
   }
 
   /**
