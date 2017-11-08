@@ -93,7 +93,10 @@ class BaseRunner {
     }})
 
     this.webpackBuilder.merge({output: {
-      path: this.path.join(this.options.builtDirectory),
+      path: this.path.join(
+        this.options.moduleDirectory,
+        this.options.builtPath
+      ),
       filename: '[name].js',
       publicPath: this.options.publicPath
     }})

@@ -5,8 +5,15 @@ module.exports = runner => {
   // copy custom static assets
   return new CopyWebpackPlugin([
     {
-      from: path.join(runner.options.moduleDirectory, runner.options.assetsPath),
-      to: path.join(runner.options.builtDirectory, runner.options.assetsPath),
+      from: path.join(
+        runner.options.moduleDirectory,
+        runner.options.assetsPath
+      ),
+      to: path.join(
+        runner.options.moduleDirectory,
+        runner.options.builtPath,
+        runner.options.assetsPath
+      ),
       ignore: ['.*']
     }
   ])

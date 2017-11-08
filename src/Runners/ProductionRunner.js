@@ -25,7 +25,10 @@ class ProductionRunner extends BaseRunner {
 
     this.webpackBuilder.deepMerge({
       output: {
-        path: this.options.builtDirectory,
+        path: this.path(
+          this.options.moduleDirectory,
+          this.options.builtPath
+        ),
         filename: this.parseAssetsFilename('js/[name].[chunkhash].js'),
         chunkFilename: this.parseAssetsFilename('js/[id].[chunkhash].js')
       }
@@ -64,7 +67,10 @@ class ProductionRunner extends BaseRunner {
     super.run()
     return require('../Utils/buildProd').call(this, {
       webpack: this.webpackBuilder.create(),
-      builtDirectory: this.options.builtDirectory,
+      builtDirectory: this.path(
+        this.options.moduleDirectory,
+        this.options.builtPath
+      ),
       assetsPath: this.options.assetsPath
     })
   }
