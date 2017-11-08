@@ -11,6 +11,7 @@ class BaseRunner {
     this.path = path
     this.options = baseOptions
     this.appEnvs = {}
+    this.proxyMaps = {}
     this.webpackBuilder = new WebpackBuilder()
     this.initialized = false  // If excute initialization, the value is true
   }
@@ -44,6 +45,7 @@ class BaseRunner {
   }
 
   setProxy (proxyMaps) {
+    this.proxyMaps = Object.assign({}, this.proxyMaps, proxyMaps)
     return this
   }
 
