@@ -5,7 +5,6 @@ const baseOptions = require('./Options/baseOptions')
 class BaseRunner {
   /**
    * @constructor
-   *
    * @param {Object} options some options
    */
   constructor (options) {
@@ -13,14 +12,32 @@ class BaseRunner {
     this.options = baseOptions
     this.appEnvs = {}
     this.webpackBuilder = new WebpackBuilder()
-    this.initialized = false  // 用于判断是否初始化
+    this.initialized = false  // If excute initialization, the value is true
   }
 
+  /**
+   * Set new options
+   * @public setOptions
+   * @param {Object} options
+   * @return {this}
+   */
   setOptions (options) {
     this.options = Object.assign({}, this.options, options)
     return this
   }
 
+  /**
+   * Set new app environments
+   * The object will be assign to process.env.xxx
+   * @public setAppEnvs
+   * @example
+   *   this.setAppEnvs({
+   *     NODE_ENV: 'development', // Just use 'development', not '"development"'
+   *     APP_DEBUG: true
+   *   })
+   * @param {Object} appEnvs
+   * @return {this}
+   */
   setAppEnvs (appEnvs) {
     this.appEnvs = Object.assign({}, this.appEnvs, appEnvs)
     return this
@@ -30,12 +47,27 @@ class BaseRunner {
     return this
   }
 
+  /**
+   * Extend Runner after initialization
+   * @public extend
+   * @example
+   *   this.extend(runner => {
+   *     console.log(runner.webpackBuilder.create())
+   *   })
+   * @param  {Function} callback Some runner extended
+   * @return {this}
+   */
   extend (callback) {
     if (!this.initialized) this.initialization()
     callback.call(this, this)
     return this
   }
 
+  /**
+   * Initialization method
+   * @public initialization
+   * @return {this}
+   */
   initialization () {
     this.initialized = true  // 完成初始化
     this.initializeWebpack()
@@ -44,8 +76,8 @@ class BaseRunner {
 
   /**
    * Set base webpack builder and config
-   *
-   * @public setBaseWebpack
+   * @protected setBaseWebpack
+   * @return {this}
    */
   initializeWebpack () {
     this.webpackBuilder.merge({entry: {
@@ -79,12 +111,11 @@ class BaseRunner {
   }
 
   /**
-   * Call some function, and send this to them for using context and methods
-   *
+   * Call some function,
+   * and send this to them for using context and methods
    * @public use
-   *
-   * @param  {Function} callback [description]
-   * @return {[type]}            [description]
+   * @param  {Function} callback
+   * @return {*} Callback call return
    */
   use (callback) {
     return callback.call(this, this)
@@ -92,13 +123,12 @@ class BaseRunner {
 
   /**
    * Important method for extended class
-   *
    * @public run
-   *
-   * @return {Object} webpack config
+   * @return {this}
    */
   run () {
     if (!this.initialized) this.initialization()
+    return this
   }
 }
 
