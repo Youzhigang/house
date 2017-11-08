@@ -1,39 +1,30 @@
-const path = require('path')
-
 module.exports = {
-  moduleDirectory: path.join(process.cwd()),
+  /**
+   * @type {String}
+   */
+  moduleDirectory: process.cwd(),
 
   /**
    * @type {String}
    */
-  appDirectory: path.join(process.cwd(), 'src'),
+  appPath: 'src',
 
   /**
-   * test path
    * @type {String}
    */
-  testDirectory: path.join(process.cwd(), 'test'),
+  testPath: 'test',
 
   /**
-   * sass resources
-   * @type {String|Array}
-   */
-  sassResourceFile: undefined,
-
-  /**
-   * html index.html file path
    * @type {String}
    */
-  indexFile: path.join(process.cwd(), 'index.html'),
+  indexFileName: 'index.html',
 
   /**
-   * build dist path
    * @type {String}
    */
-  builtDirectory: path.join(process.cwd(), 'dist'),
+  builtPath: 'dist',
 
   /**
-   * dist/static
    * @type {String}
    */
   assetsPath: 'static',
@@ -46,15 +37,7 @@ module.exports = {
   publicPath: '/',
 
   /**
-   * proxy map table
-   * @see https://github.com/chimurai/http-proxy-middleware
-   * @type {Object}
-   */
-  proxyTable: {},
-
-  /**
    * http port
-   * @private
    * @type {Number}
    */
   port: process.env.PORT || 8080,
