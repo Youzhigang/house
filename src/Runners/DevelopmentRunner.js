@@ -1,4 +1,3 @@
-const express = require('express')
 const BaseRunner = require('./BaseRunner')
 const ExpressBuilder = require('../Builders/ExpressBuilder')
 
