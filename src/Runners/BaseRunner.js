@@ -98,7 +98,7 @@ class BaseRunner {
         this.options.builtPath
       ),
       filename: '[name].js',
-      publicPath: this.options.publicPath
+      publicPath: this.path.posix.join(this.options.publicPath)
     }})
 
     this.webpackBuilder.addExtensions(['.js', '.vue', '.json'])
