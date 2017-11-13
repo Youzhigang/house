@@ -10,6 +10,10 @@ class DevelopmentRunner extends BaseRunner {
   initialization () {
     super.initialization()
 
+    this.webpackBuilder.deepMerge({output: {
+      publicPath: '/'
+    }})
+
     // Extend webpack.entry.app, add webpack-hot-middleware file
     this.webpackBuilder.extend(webpack => {
       Object.keys(webpack.entry).forEach(name => {
