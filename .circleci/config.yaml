@@ -7,4 +7,4 @@ jobs:
      steps:
        - checkout
        - run: yarn install
-       - run: yarn run test
+       - run: echo "hello world"
