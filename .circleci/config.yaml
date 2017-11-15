@@ -1,0 +1,10 @@
+version: 2
+jobs:
+   build:
+     docker:
+       - image: circleci/node:carbon
+     working_directory: ~/house
+     steps:
+       - checkout
+       - run: yarn
+       - run: yarn run test
