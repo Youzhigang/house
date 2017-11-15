@@ -20,3 +20,12 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run: yarn test
+      - deploy:
+          command: |
+            set -eu
+            TAG=$(git describe --tags)
+            if [[ $TAG =~ ^[0-9]+(\.[0-9]+)$ ]]; then
+              echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+              echo "publishing"
+              npm publish
+            fi
