@@ -22,10 +22,6 @@ jobs:
       - run: yarn test
       - deploy:
           command: |
-            set -eu
-            TAG=$(git describe --tags)
-            if [[ $TAG =~ ^v[0-9]+(\.[0-9]+)+(-rc[0-9]+)?(-beta[0-9]+)?(-alpha[0-9]+)?$ ]]; then
-              echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-              echo "publishing"
-              npm publish --access public
-            fi
+            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+            npm config ls
+            npm publish --access public
