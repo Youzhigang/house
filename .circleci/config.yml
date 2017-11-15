@@ -27,5 +27,5 @@ jobs:
             if [[ $TAG =~ ^v[0-9]+(\.[0-9]+)+(-rc[0-9]+)?(-beta[0-9]+)?(-alpha[0-9]+)?$ ]]; then
               echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
               echo "publishing"
-              npm publish
+              npm publish --access public
             fi
