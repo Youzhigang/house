@@ -36,6 +36,8 @@ new DevelopmentRunner()
   .run()                               // 运行
 ```
 
+修改你的项目的 ./package.json 文件
+
 ``` json
 {
   "scripts": {
