@@ -113,28 +113,6 @@ class WebpackBuilder {
   }
 
   /**
-   * Remove rule from webpack.module.rules by rule $id
-   * @param  {String|Number} ruleId
-   * @return {this}
-   */
-  removeRuleById (ruleId) {
-    const rules = this.webpack.module.rules.filter(rule => {
-      return rule.$id === ruleId
-    })
-
-    if (rules.length === 0) {
-      throw new Error(`Can\'t find "${ruleId}" rule`)
-    }
-
-    rules.forEach(rule => {
-      const index = this.webpack.module.rules.indexOf(rule)
-      this.webpack.module.rules.splice(index, 1)
-    })
-
-    return this
-  }
-
-  /**
    * Push plugin to webpack.module.plugins
    * @param  {*} plugin
    * @return {this}
