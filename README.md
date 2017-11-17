@@ -1,20 +1,25 @@
 # 使用文档
 
+## 安装
+
+``` bash
+yarn add -D @freshes/house
+```
+
 ## 使用指南
 
 house 的核心类是以下几个文件：
 
-* src/Runners/DevelopmentRunner.js
-* src/Runners/ProductionRunner.js
-* src/Runners/ServerRunner.js
-
-* DevelopmentRunner 主要用于启动开发环境；
-* ProductionRunner 主要用于打包生成环境；
-* ServerRunner 主要用于为打包后的生成环境提供服务器支持，启动 express、接口代理等服务。
+* src/Runners/DevelopmentRunner.js，主要用于启动开发环境；
+* src/Runners/ProductionRunner.js，主要用于打包生成环境；
+* src/Runners/ServerRunner.js，主要用于为打包后的生成环境提供服务器支持，启动 express、接口代理等服务。
 
 ## 开发环境
 
+在项目目录下新建 ./script/development.js
+
 ``` javascript
+// ./script/development.js
 import DevelopmentRunner from '@freshes/house/src/Runners/DevelopmentRunner.js'
 
 new DevelopmentRunner()
@@ -25,6 +30,16 @@ new DevelopmentRunner()
   .run()                               // 运行
 ```
 
+``` json
+{
+  "scripts": {
+    "start": "node ./scripts/development.js"
+  }
+}
+```
+
+开发环境、生产环境和服务器环境的更多用法可以参考 @freshes/starter 项目，即将发布。
+
 ## runner.extend 的方法介绍
 
 runner 有目前有两个内置的 builder 可以被暴露出来，分别是 webpackBuilder 和 expressBuilder。
@@ -32,7 +47,7 @@ runner 有目前有两个内置的 builder 可以被暴露出来，分别是 web
 ``` javascript
 new DevelopmentRunner()
   .extend(runner => {
-    // 具体方法参考 API 手册
+    // 具体方法参考 API 手册，待上传
     runner.webpackBuilder.xxx
     runner.expressBuilder.xxx
   })
