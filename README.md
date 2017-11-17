@@ -1,3 +1,13 @@
+<p align="center">
+  <h1>House</h1>
+</p>
+
+<p align="center">
+  <a href="https://circleci.com/gh/HumanUI/house/tree/master" title="CircleCI">
+    <img src="https://circleci.com/gh/HumanUI/house/tree/master.svg?style=svg">
+  </a>
+</p>
+
 # 使用文档
 
 ## 安装
