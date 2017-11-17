@@ -2,6 +2,15 @@ const path = require('path')
 const WebpackBuilder = require('../Builders/WebpackBuilder')
 const baseOptions = require('./Options/baseOptions')
 
+/**
+ * @callback BaseRunner~extendCallback
+ * @param  {Object} runner runner self
+ */
+
+/**
+ * @class
+ * Base Runner Class
+ */
 class BaseRunner {
   /**
    * @constructor
@@ -58,7 +67,7 @@ class BaseRunner {
    *   this.extend(runner => {
    *     console.log(runner.webpackBuilder.create())
    *   })
-   * @param  {Function} callback Some runner extended
+   * @param  {BaseRunner~extendCallback} callback Some runner extended
    * @return {this}
    */
   extend (callback) {
