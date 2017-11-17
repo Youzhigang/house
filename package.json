@@ -17,8 +17,9 @@
     "dev": "node ./example/scripts/development.js",
     "build": "node ./example/scripts/production.js",
     "server": "node ./example/scripts/server.js",
-    "test": "jest",
-    "lint": "eslint --no-ignore scripts src"
+    "test": "yarn run lint && jest",
+    "lint": "eslint --no-ignore scripts src",
+    "docs": "jsdoc -r -c ./docs/jsdoc.json"
   },
   "files": [
     "src"
@@ -60,6 +61,7 @@
     "html-webpack-plugin": "^2.30.1",
     "http-proxy-middleware": "^0.17.4",
     "inject-loader": "^3.0.1",
+    "jsdoc": "^3.5.5",
     "node-sass": "^4.5.3",
     "opn": "^5.1.0",
     "optimize-css-assets-webpack-plugin": "2.0.0",
