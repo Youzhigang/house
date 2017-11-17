@@ -20,7 +20,6 @@ class WebpackBuilder {
 
   /**
    * Create webpack config object
-   * @public create
    * @return {Object} webpack config
    */
   create () {
@@ -29,7 +28,6 @@ class WebpackBuilder {
 
   /**
    * Merge fields to webpack
-   * @public merge
    * @param  {Object} fields
    * @return {this}
    */
@@ -72,7 +70,6 @@ class WebpackBuilder {
 
   /**
    * Push extension to config.resolve.extensions
-   * @public addExtension
    * @param {*} extension
    */
   addExtension (extension) {
@@ -82,7 +79,6 @@ class WebpackBuilder {
 
   /**
    * Concat extensions to config.resolve.extensions
-   * @public addExtensions
    * @param {Array} extensions
    */
   addExtensions (extensions) {
