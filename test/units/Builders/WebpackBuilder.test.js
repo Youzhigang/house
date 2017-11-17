@@ -108,40 +108,6 @@ describe('WebpackBuilder.prototype.addRules()', () => {
   })
 })
 
-describe('WebpackBuilder.prototype.removeRuleById()', () => {
-  const builder = new WebpackBuilder()
-
-  test('remove two human', () => {
-    const expected = [
-      { $id: 'human' },
-      { $id: 'human'}
-    ]
-
-    builder.addRules(expected)
-    builder.removeRuleById('human')
-    const webpack = builder.create()
-    expect(webpack.module.rules).toEqual([])
-  })
-
-  test('remove human and reserve robot', () => {
-    const expected = [
-      { $id: 'human' },
-      { $id: 'robot'}
-    ]
-
-    builder.addRules(expected)
-    builder.removeRuleById('human')
-    const webpack = builder.create()
-    expect(webpack.module.rules).toEqual([ { $id: 'robot'} ])
-  })
-
-  test('throw error', () => {
-    expect(() => {
-      builder.removeRuleById('human')
-    }).toThrowError('Can\'t find "human" rule')
-  })
-})
-
 describe('WebpackBuilder.prototype.addPlugin()', () => {
   test('addPlugin', () => {
     const builder = new WebpackBuilder()
