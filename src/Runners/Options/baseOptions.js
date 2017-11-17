@@ -82,5 +82,10 @@ module.exports = {
   /**
    * enable human rule
    */
-  enableHumanRule: true
+  enableHumanRule: true,
+
+  /**
+   *
+   */
+  sassResources: undefined
 }

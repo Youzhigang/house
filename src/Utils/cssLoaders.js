@@ -51,31 +51,26 @@ module.exports = function (options) {
     }
   }
 
+  function getScssConfig () {
+    if (!options.sassResources) return [ 'sass' ]
+
+    return [
+      'sass',
+      {
+        loader: 'sass-resources-loader',
+        options: {
+          resources: options.sassResources
+        }
+      }
+    ]
+  }
+
   // https://vue-loader.vuejs.org/en/configurations/extract-css.html
   return {
     css: generateLoaders(),
     postcss: generateLoaders(),
     less: generateLoaders('less'),
-    sass: generateLoaders([
-      {
-        loader: 'sass-loader',
-        options: {
-          sourceMap: options.cssSourceMap,
-          indentedSyntax: true
-        }
-      }
-    ]),
-    scss: generateLoaders([
-      'sass'
-      // you can need sass-resources-loader for your sass
-      // {
-      //   loader: 'sass-resources-loader',
-      //   options: {
-      //     // must choose a scss file
-      //     resources: options.sassResourceFile
-      //   }
-      // }
-    ]),
+    scss: generateLoaders(getScssConfig()),
     stylus: generateLoaders('stylus'),
     styl: generateLoaders('stylus')
   }
