@@ -18,7 +18,6 @@ class BaseRunner {
 
   /**
    * Set new options
-   * @public setOptions
    * @param {Object} options
    * @return {this}
    */
@@ -30,7 +29,6 @@ class BaseRunner {
   /**
    * Set new app environments
    * The object will be assign to process.env.xxx
-   * @public setAppEnvs
    * @example
    *   this.setAppEnvs({
    *     NODE_ENV: 'development', // Just use 'development', not '"development"'
@@ -44,6 +42,11 @@ class BaseRunner {
     return this
   }
 
+  /**
+   * Set http proxy maps
+   * @param {Object} proxyMaps
+   * @return {this}
+   */
   setProxy (proxyMaps) {
     this.proxyMaps = Object.assign({}, this.proxyMaps, proxyMaps)
     return this
@@ -51,7 +54,6 @@ class BaseRunner {
 
   /**
    * Extend Runner after initialization
-   * @public extend
    * @example
    *   this.extend(runner => {
    *     console.log(runner.webpackBuilder.create())
@@ -68,7 +70,6 @@ class BaseRunner {
   /**
    * Call some function,
    * and send this to them for using context and methods
-   * @public use
    * @param  {Function} callback
    * @return {*} Callback call return
    */
@@ -78,7 +79,7 @@ class BaseRunner {
 
   /**
    * Initialization method
-   * @public initialization
+   * @protected
    * @return {this}
    */
   initialization () {
@@ -123,7 +124,6 @@ class BaseRunner {
 
   /**
    * Important method for extended class
-   * @public run
    * @return {this}
    */
   run () {

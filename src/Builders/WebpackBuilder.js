@@ -53,8 +53,8 @@ class WebpackBuilder {
    *     webpack.entry = {} // some new value
    *     return webpack     // need return webpack
    *   })
-   * @param  {Function} callback [description]
-   * @return {[type]}            [description]
+   * @param  {Function} callback
+   * @return {this}
    */
   extend (callback) {
     const extendedWebpack = callback.call(this, this.webpack)

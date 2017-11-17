@@ -7,11 +7,21 @@ const ExpressBuilder = require('../Builders/ExpressBuilder')
 const useExpressProxy = require('./Helpers/useExpressProxy')
 
 class PresetationRunner extends BaseRunner {
+  /**
+   * Add express to expressBuilder
+   * @param  {*} args
+   * @return {this}
+   */
   constructor (...args) {
     super(...args)
     this.expressBuilder = new ExpressBuilder()
   }
 
+  /**
+   * Add initialization
+   * @protected
+   * @return {this}
+   */
   initialization () {
     super.initialization()
 
@@ -35,9 +45,7 @@ class PresetationRunner extends BaseRunner {
 
   /**
    * Run runner
-   *
-   * @public run
-   * @return {Object}
+   * @return {void}
    */
   run () {
     super.run()

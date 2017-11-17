@@ -2,11 +2,21 @@ const BaseRunner = require('./BaseRunner')
 const ExpressBuilder = require('../Builders/ExpressBuilder')
 
 class DevelopmentRunner extends BaseRunner {
+  /**
+   * Add express to expressBuilder
+   * @param  {*} args
+   * @return {this}
+   */
   constructor (...args) {
     super(...args)
     this.expressBuilder = new ExpressBuilder()
   }
 
+  /**
+   * Add initialization
+   * @protected
+   * @return {this}
+   */
   initialization () {
     super.initialization()
 
@@ -41,9 +51,7 @@ class DevelopmentRunner extends BaseRunner {
 
   /**
    * Run runner
-   *
-   * @public run
-   * @return {Object}
+   * @return {void}
    */
   run () {
     super.run()

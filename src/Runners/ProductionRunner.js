@@ -3,7 +3,9 @@ const productionOptions = require('./Options/productionOptions')
 
 class ProductionRunner extends BaseRunner {
   /**
-   * @constructor
+   * Add prodcut options
+   * @param  {*} args
+   * @return {this}
    */
   constructor (...args) {
     super(...args)
@@ -12,8 +14,7 @@ class ProductionRunner extends BaseRunner {
 
   /**
    * Extend production webpack config
-   *
-   * @public setProductionWebpack
+   * @protected
    * @return {this}
    */
   initialization () {
@@ -63,6 +64,10 @@ class ProductionRunner extends BaseRunner {
     return this.path.posix.join(this.options.assetsPath, relativePath)
   }
 
+  /**
+   * Run runner
+   * @return {*}
+   */
   run () {
     super.run()
     return require('../Utils/buildProd').call(this, {
