@@ -6,7 +6,11 @@ const BaseRunner = require('./BaseRunner')
 const ExpressBuilder = require('../Builders/ExpressBuilder')
 const useExpressProxy = require('./Helpers/useExpressProxy')
 
-class PresetationRunner extends BaseRunner {
+/**
+ * @class
+ * Server Runner
+ */
+class ServerRunner extends BaseRunner {
   /**
    * Add express to expressBuilder
    * @param  {*} args
@@ -53,4 +57,4 @@ class PresetationRunner extends BaseRunner {
   }
 }
 
-module.exports = PresetationRunner
+module.exports = ServerRunner
