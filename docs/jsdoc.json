@@ -4,6 +4,7 @@
     "includePattern": "\\.(js)$"
   },
   "opts": {
+    "template": "node_modules/@freshes/jsdoc-template",
     "destination": "./docs/apis"
   }
 }
