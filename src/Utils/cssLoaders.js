@@ -69,9 +69,6 @@ module.exports = function (options) {
   return {
     css: generateLoaders(),
     postcss: generateLoaders(),
-    less: generateLoaders('less'),
-    scss: generateLoaders(getScssConfig()),
-    stylus: generateLoaders('stylus'),
-    styl: generateLoaders('stylus')
+    scss: generateLoaders(getScssConfig())
   }
 }
