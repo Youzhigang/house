@@ -22,7 +22,7 @@ class BaseRunner {
     this.appEnvs = {}
     this.proxyMaps = {}
     this.webpackBuilder = new WebpackBuilder()
-    this.initialized = false  // If excute initialization, the value is true
+    this.initialized = false // If excute initialization, the value is true
   }
 
   /**
@@ -92,7 +92,7 @@ class BaseRunner {
    * @return {this}
    */
   initialization () {
-    this.initialized = true  // 完成初始化
+    this.initialized = true // 完成初始化
 
     this.webpackBuilder.merge({entry: {
       app: this.path.join(
