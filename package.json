@@ -30,7 +30,7 @@
     "@freshes/jsdoc-template": "^1.0.0",
     "jest": "^21.2.1",
     "jsdoc": "^3.5.5",
-    "vue-human": "^2.7.0"
+    "vue-human": "^2.8.1"
   },
   "dependencies": {
     "autoprefixer": "^7.1.6",
