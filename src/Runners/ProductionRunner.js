@@ -28,7 +28,8 @@ class ProductionRunner extends BaseRunner {
       output: {
         path: this.path.join(
           this.options.moduleDirectory,
-          this.options.builtPath
+          this.options.builtPath,
+          this.options.publicPath
         ),
         filename: this.parseAssetsFilename('js/[name].[chunkhash].js'),
         chunkFilename: this.parseAssetsFilename('js/[id].[chunkhash].js')

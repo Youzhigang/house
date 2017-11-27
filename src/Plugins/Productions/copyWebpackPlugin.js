@@ -12,6 +12,7 @@ module.exports = runner => {
       to: path.join(
         runner.options.moduleDirectory,
         runner.options.builtPath,
+        runner.options.publicPath,
         runner.options.assetsPath
       ),
       ignore: ['.*']
