@@ -3,8 +3,9 @@ const DevelopmentRunner = require('../../src/Runners/DevelopmentRunner')
 new DevelopmentRunner()
   .setOptions(require('./options'))
   .setProxy(require('./proxyMaps'))
-  .setAppEnvs()
+  .setAppEnvs(require('./appEnvs'))
   .extend(runner => {
-    console.log(runner.webpackBuilder.create())
+    // You can extend webpack, express and more builders.
+    // console.log(runner.webpackBuilder.create())
   })
   .run()
