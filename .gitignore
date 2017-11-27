@@ -5,5 +5,5 @@ yarn-debug.log*
 yarn-error.log*
 test/coverage
 docs/apis
-example
+example/dist
 dist
