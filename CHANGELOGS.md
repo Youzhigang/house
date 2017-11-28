@@ -1,3 +1,7 @@
+# 1.2.0
+
+【更新】支持子地址
+
 # 1.1.0
 
 【更新】将 vue-human-env 和 strawes 加入 humanRule
