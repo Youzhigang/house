@@ -76,8 +76,7 @@ class ProductionRunner extends BaseRunner {
       builtDirectory: this.path.join(
         this.options.moduleDirectory,
         this.options.builtPath
-      ),
-      assetsPath: this.options.assetsPath
+      )
     })
   }
 }
