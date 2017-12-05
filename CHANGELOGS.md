@@ -1,3 +1,7 @@
+# 1.2.2
+
+No changes.
+
 # 1.2.1
 
 [Fixed] fix cannot clear builtPath.

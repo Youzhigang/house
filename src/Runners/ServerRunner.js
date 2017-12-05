@@ -1,7 +1,6 @@
 const express = require('express')
 const chalk = require('chalk')
 const path = require('path')
-const connectHistoryApiFallback = require('connect-history-api-fallback')
 const BaseRunner = require('./BaseRunner')
 const ExpressBuilder = require('../Builders/ExpressBuilder')
 const useExpressProxy = require('./Helpers/useExpressProxy')
