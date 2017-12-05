@@ -1,3 +1,8 @@
+# 1.2.1
+
+[Fixed] fix cannot clear builtPath.
+[Fixed] built sub folder cannot use ServerRunner.
+
 # 1.2.0
 
 【更新】支持子地址
