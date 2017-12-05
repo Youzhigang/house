@@ -1,8 +1,8 @@
 # 使用文档
 
 <p>
-  <a href="https://circleci.com/gh/HumanUI/house/tree/master" title="CircleCI">
-    <img src="https://circleci.com/gh/HumanUI/house/tree/master.svg?style=svg">
+  <a href="https://circleci.com/gh/freshesx/house/tree/master" title="CircleCI">
+    <img src="https://circleci.com/gh/freshesx/house/tree/master.svg?style=svg">
   </a>
 </p>
 
