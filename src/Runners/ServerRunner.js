@@ -31,13 +31,11 @@ class ServerRunner extends BaseRunner {
 
     this.expressBuilder.addBeforeListenQueue(app => {
       useExpressProxy(app, this.proxyMaps)
-      app.use(connectHistoryApiFallback())
-      // @todo Rewrite this static express function, I have a bug.
-      app.use(path.posix.join(
-        this.options.publicPath
-      ), express.static(path.join(
+
+      app.use(path.resolve(this.options.publicPath), express.static(path.join(
         this.options.moduleDirectory,
-        this.options.builtPath
+        this.options.builtPath,
+        this.options.publicPath
       )))
     })
 
