@@ -1,9 +1,9 @@
 const DevelopmentRunner = require('../../src/Runners/DevelopmentRunner')
 
 new DevelopmentRunner()
-  .setOptions(require('./options'))
-  .setProxy(require('./proxyMaps'))
-  .setAppEnvs(require('./appEnvs'))
+  .setOptions(require('./configs/options'))
+  .setProxy(require('./configs/proxy'))
+  .setAppEnvs(require('./configs/appEnvs'))
   .extend(runner => {
     // You can extend webpack, express and more builders.
     // console.log(runner.webpackBuilder.create())

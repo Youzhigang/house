@@ -1,7 +1,7 @@
 const ServerRunner = require('../../src/Runners/ServerRunner')
 
 new ServerRunner()
-  .setOptions(require('./options'))
-  .setProxy(require('./proxyMaps'))
-  .setAppEnvs(require('./appEnvs'))
+  .setOptions(require('./configs/options'))
+  .setProxy(require('./configs/proxy'))
+  .setAppEnvs(require('./configs/appEnvs'))
   .run()
