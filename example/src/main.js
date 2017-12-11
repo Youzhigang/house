@@ -1,5 +1,6 @@
 import 'babel-polyfill'
 import Vue from 'vue'
+import './sentry'
 import store from './store'
 import './human'
 import App from './app.vue'
