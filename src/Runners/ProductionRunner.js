@@ -21,7 +21,7 @@ class ProductionRunner extends BaseRunner {
     super.initialization()
 
     this.webpackBuilder.merge({
-      devtool: false
+      devtool: 'source-map'
     })
 
     this.webpackBuilder.deepMerge({
@@ -32,6 +32,7 @@ class ProductionRunner extends BaseRunner {
           this.options.publicPath
         ),
         filename: this.parseAssetsFilename('js/[name].[chunkhash].js'),
+        sourceMapFilename: this.parseAssetsFilename('js/[name].js.map'),
         chunkFilename: this.parseAssetsFilename('js/[id].[chunkhash].js')
       }
     })
