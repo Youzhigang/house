@@ -1,9 +1,15 @@
 const path = require('path')
 const SentryWebpackPlugin = require('@sentry/webpack-plugin')
+const readFileSync = require('fs').readFileSync
 
 module.exports = runner => {
-  // @todo Check .sentryclirc extis in local root directory.
-  // If the file is missing, skip SentryWebpackPlugin.
+  try {
+    readFileSync(path.join(process.cwd(), '.sentryclirc'), 'utf8')
+  } catch (err) {
+    console.log('Need add .sentryclirc file.')
+    return new SentryWebpackPlugin()
+  }
+
   return new SentryWebpackPlugin({
     release () {
       return process.env.SENTRY_RELEASE
