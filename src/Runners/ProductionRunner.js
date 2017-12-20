@@ -45,7 +45,7 @@ class ProductionRunner extends BaseRunner {
       this.use(require('../Plugins/Productions/vendorChunkPlugin')),
       this.use(require('../Plugins/Productions/manifestChunkPlugin')),
       this.use(require('../Plugins/Productions/copyWebpackPlugin')),
-      this.use(require('../Plugins/Productions/sentryPlugin')),
+      this.use(require('../Plugins/Productions/sentrySourcemapPlugin')),
     ])
 
     if (this.options.productionGzip) {
