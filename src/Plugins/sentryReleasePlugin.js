@@ -6,7 +6,7 @@ const readFileSync = require('fs').readFileSync
 module.exports = runner => {
   let commit = undefined
   let version = undefined
-  const release = []
+  let release = 'NONE'
 
   // Get git commit hash
   try {
@@ -23,11 +23,18 @@ module.exports = runner => {
     console.log('The package hasn\'t package.json version.')
   }
 
-  if (version) release.push(version)
-  if (commit) release.push(commit)
+  if (version && commit) {
+    release = `${version}(${commit})`
+  } else if (!version && commit) {
+    release = `${commit}`
+  } else if (version && !commit) {
+    release = `${version}`
+  }
+
+  console.log('release', release)
 
   // Define node process env
-  process.env.SENTRY_RELEASE = release.join('-')
+  process.env.SENTRY_RELEASE = release
 
   // Define browser process env
   return new webpack.DefinePlugin({
