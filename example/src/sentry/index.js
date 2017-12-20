@@ -6,7 +6,7 @@ import RavenVue from 'raven-js/plugins/vue'
 if (process.env.SENTRY_KEY) {
   Raven
     .config(process.env.SENTRY_KEY, {
-      release: process.env.GIT_COMMIT
+      release: process.env.SENTRY_RELEASE
     })
     .addPlugin(RavenVue, Vue)
     .install()
