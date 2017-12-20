@@ -14,7 +14,11 @@ module.exports = runner => {
     release () {
       return process.env.SENTRY_RELEASE
     },
-    include: path.join(process.cwd(), 'example/dist'),
+    include: path.join(
+      runner.options.moduleDirectory,
+      runner.options.builtPath,
+      runner.options.publicPath
+    ),
     ignore: [
       path.join(process.cwd(), 'node_modules')
     ]
