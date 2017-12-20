@@ -13,3 +13,9 @@ if (process.env.SENTRY_KEY) {
 }
 
 export default Raven
+
+export function captureException (...args) {
+  // @todo set user context by every capturing
+  // Raven.setUserContext()
+  Raven.captureException(...args)
+}
