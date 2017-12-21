@@ -16,8 +16,7 @@ module.exports = runner => {
     },
     include: path.join(
       runner.options.moduleDirectory,
-      runner.options.builtPath,
-      runner.options.publicPath
+      runner.options.builtPath
     ),
     ignore: [
       path.join(process.cwd(), 'node_modules')
