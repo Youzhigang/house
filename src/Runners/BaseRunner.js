@@ -127,7 +127,7 @@ class BaseRunner {
       this.webpackBuilder.addRule(this.use(require('../Rules/humanRule')))
     }
 
-    this.webpackBuilder.addPlugin(this.use(require('../Plugins/sentryReleasePlugin')))
+    this.webpackBuilder.addPlugin(this.use(require('../Plugins/defineHashPlugin')))
     this.webpackBuilder.addPlugin(this.use(require('../Plugins/definePlugin')))
 
     return this
