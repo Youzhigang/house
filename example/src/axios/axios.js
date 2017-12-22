@@ -1,6 +1,7 @@
 import axios from 'axios'
 import isUndefined from 'lodash/isUndefined'
 import AxiosHelper from './AxiosHelper'
+import { captureException } from '../sentry'
 
 let request
 
@@ -14,6 +15,7 @@ export default function (config) {
 
     // Listen response
     request.interceptors.response.use(null, error => {
+      captureException(error)
       axiosHelper.error(error)
       return Promise.reject(error)
     })
