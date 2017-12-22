@@ -6,13 +6,11 @@ import RavenVue from 'raven-js/plugins/vue'
 if (process.env.SENTRY_KEY) {
   Raven
     .config(process.env.SENTRY_KEY, {
-      release: process.env.SENTRY_RELEASE
+      release: process.env.VERSION_HASH
     })
     .addPlugin(RavenVue, Vue)
     .install()
 }
-
-export default Raven
 
 export function captureException (...args) {
   // @todo set user context by every capturing
