@@ -21,6 +21,7 @@
     "lint": "eslint --no-ignore scripts src",
     "docs": "jsdoc -r -c ./docs/jsdoc.json"
   },
+  "main": "src/index.js",
   "files": [
     "src"
   ],
