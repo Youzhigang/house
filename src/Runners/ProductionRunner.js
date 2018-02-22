@@ -1,5 +1,6 @@
 const BaseRunner = require('./BaseRunner')
 const productionOptions = require('./Options/productionOptions')
+const productionAppEnvs = require('./Options/productionAppEnvs')
 
 class ProductionRunner extends BaseRunner {
   /**
@@ -10,6 +11,7 @@ class ProductionRunner extends BaseRunner {
   constructor (...args) {
     super(...args)
     this.options = Object.assign({}, this.options, productionOptions)
+    this.appEnvs = Object.assign({}, this.appEnvs, productionAppEnvs)
   }
 
   /**
