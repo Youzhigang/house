@@ -1,3 +1,8 @@
+# 1.3.0
+
+[Fixed] Fixed production NODE_ENV.
+[Added] src/index.js file.
+
 # 1.2.2
 
 No changes.
