@@ -37,9 +37,10 @@ jobs:
       - run:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
-      - run:
-          name: Publish package
-          command: npm publish --access public
+      # Close publish package
+      # - run:
+      #     name: Publish package
+      #     command: npm publish --access public
             
 workflows:
   version: 2
@@ -49,11 +50,12 @@ workflows:
           filters:
             tags:
               only: /^v.*/
-      - deploy:
-          requires:
-            - test
-          filters:
-            tags:
-              only: /^v.*/
-            branches:
-              ignore: /.*/
+      # Close publish package
+      # - deploy:
+      #     requires:
+      #       - test
+      #     filters:
+      #       tags:
+      #         only: /^v.*/
+      #       branches:
+      #         ignore: /.*/
