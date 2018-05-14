@@ -1,12 +1,17 @@
 {
   "name": "@freshes/house",
-  "version": "3.0.0-alpha.0",
+  "version": "3.0.0-alpha.1",
   "description": "House for developing and using freshes components.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/HumanUI/house.git"
   },
-  "keywords": ["vue", "javascript", "components", "freshes"],
+  "keywords": [
+    "vue",
+    "javascript",
+    "components",
+    "freshes"
+  ],
   "scripts": {
     "start": "node ./example/scripts/development.js",
     "dev": "node ./example/scripts/development.js",
@@ -17,7 +22,9 @@
     "docs": "jsdoc -r -c ./docs/jsdoc.json"
   },
   "main": "src/index.js",
-  "files": ["src"],
+  "files": [
+    "src"
+  ],
   "author": "Wu Qi Cheng <wu.qicheng@vitualreaty.com>",
   "license": "MIT",
   "devDependencies": {
