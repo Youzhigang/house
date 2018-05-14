@@ -8,7 +8,7 @@
 
 ## Usage
 
-``` bash
+```bash
 yarn add -D @freshes/house
 ```
 
@@ -24,7 +24,7 @@ Core files of house have:
 
 Add new file `./script/development.js` in project root path.
 
-``` javascript
+```javascript
 // ./script/development.js
 import DevelopmentRunner from '@freshes/house/src/Runners/DevelopmentRunner.js'
 
@@ -42,7 +42,7 @@ new DevelopmentRunner()
 
 Then edit `./package.json`
 
-``` json
+```json
 {
   "scripts": {
     "start": "node ./scripts/development.js"
@@ -54,11 +54,16 @@ Then edit `./package.json`
 
 runner has two built-in builder, they are webpackBuilder and expressBuilder.
 
-``` javascript
-new DevelopmentRunner()
-  .extend(runner => {
-    // you can refer to api documentation, the documentation will be uploaded
-    runner.webpackBuilder.xxx
-    runner.expressBuilder.xxx
-  })
+```javascript
+new DevelopmentRunner().extend(runner => {
+  // you can refer to api documentation, the documentation will be uploaded
+  runner.webpackBuilder.xxx
+  runner.expressBuilder.xxx
+})
+```
+
+## Sentry Hash
+
+```
+新增 VERSION_HASH 的环境的变量，默认取当前 git commit 的 hash 值。
 ```
