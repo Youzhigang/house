@@ -1,8 +1,12 @@
 import Vue from 'vue'
 import fundeug from 'fundebug-javascript'
 const fundebug = require('fundebug-javascript')
-fundebug.apikey =
-  '7069de8f71fe0ab7d8c9adaed971b0ff7febbda08a150f1f8fde0bfcd110886f'
+fundebug.apikey = process.env.FUNDEBUG_API_KEY
+ //  '7069de8f71fe0ab7d8c9adaed971b0ff7febbda08a150f1f8fde0bfcd110886f'
+
+console.log(process.env.NODE_ENV)
+console.log(process.env.FUNDEBUG_API_KEY)
+
 
 fundebug.appversion = process.env.VERSION_HASH
 
