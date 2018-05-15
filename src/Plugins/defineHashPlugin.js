@@ -16,8 +16,18 @@ module.exports = runner => {
   // Define node process env
   process.env.VERSION_HASH = process.env.VERSION_HASH || hash
 
+  // Define fundebug apiKey
+  if (!runner.options.fundebug.apiKey) {
+    console.log(JSON.stringify(runner.options))
+    throw new Error('fundebug apiKey is undefined')
+    return
+  }
+  // console.log(runner.options.fundebug.apiKey, 1111)
+  process.env.FUNDEBUG_API_KEY = runner.options.fundebug.apiKey
+
   // Define browser process env
   return new webpack.DefinePlugin({
-    'process.env.VERSION_HASH': JSON.stringify(process.env.VERSION_HASH)
+    'process.env.VERSION_HASH': JSON.stringify(process.env.VERSION_HASH),
+    'process.env.FUNDEBUG_API_KEY': JSON.stringify(runner.options.fundebug.apiKey)
   })
 }
