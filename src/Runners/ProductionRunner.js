@@ -80,8 +80,7 @@ class ProductionRunner extends BaseRunner {
       builtDirectory: this.path.join(
         this.options.moduleDirectory,
         this.options.builtPath
-      ),
-      useErrorTrack: this.options.useErrorTrack
+      )
     })
   }
 }

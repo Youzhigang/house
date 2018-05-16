@@ -90,13 +90,6 @@ module.exports = {
    */
   sassResources: undefined,
 
-  sourceMapDist: '',
-
-  /**
-   * use error track or not
-   */
-  useErrorTrack: true,
-
   fundebug: {
     apiKey: ''
   }
