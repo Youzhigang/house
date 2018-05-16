@@ -6,7 +6,7 @@ const chalk = require('chalk')
 const moveSourceMapFiles = require('./moveSourceMapFiles')
 const uploadSourceMapFiles = require('./uploadSourceMapFiles')
 
-module.exports = ({ webpack, builtDirectory }) => {
+module.exports = ({ webpack, builtDirectory, useErrorTrack }) => {
   var spinner = ora('building for production...')
   spinner.start()
 
@@ -30,9 +30,8 @@ module.exports = ({ webpack, builtDirectory }) => {
       ))
       console.log(chalk.green('Begin to copy sourcemap'))
       moveSourceMapFiles(builtDirectory)
-      console.log(chalk.green('copy sourcemap complete, begin to upload...'))
-      uploadSourceMapFiles(builtDirectory)
-      console.log(chalk.green('upload sourcemap success!'))
+      console.log(chalk.green('copy sourcemap complete!'))
+      useErrorTrack && uploadSourceMapFiles(builtDirectory)
     })
   })
 }
