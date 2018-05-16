@@ -3,6 +3,8 @@ const webpackCli = require('webpack')
 const ora = require('ora')
 const rm = require('rimraf')
 const chalk = require('chalk')
+const moveSourceMapFiles = require('./moveSourceMapFiles')
+const uploadSourceMapFiles = require('./uploadSourceMapFiles')
 
 module.exports = ({ webpack, builtDirectory }) => {
   var spinner = ora('building for production...')
@@ -26,6 +28,11 @@ module.exports = ({ webpack, builtDirectory }) => {
         '  Tip: built files are meant to be served over an HTTP server.\n' +
         '  Opening index.html over file:// won\'t work.\n'
       ))
+      console.log(chalk.green('Begin to copy sourcemap'))
+      moveSourceMapFiles(builtDirectory)
+      console.log(chalk.green('copy sourcemap complete, begin to upload...'))
+      uploadSourceMapFiles(builtDirectory)
+      console.log(chalk.green('upload sourcemap success!'))
     })
   })
 }
