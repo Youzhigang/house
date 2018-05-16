@@ -108,9 +108,12 @@ example
 
 - 新增`process.env.FUNDEBUG_API_KEY`的环境变量, 务必在`options` 中正确配置apikey
 
-```
-fundebug: {
-  apiKey: '7069de8f71fe0ab7d8c9adaed971b0ff7febbda08a150f1f8fde0bfcd110886f'
+```javascript
+{
+  // publicPath: './',
+  fundebug: {
+    apiKey: '7069de8f71fe0ab7d8c9adaed971b0ff7febbda08a150f1f8fde0bfcd110886f'
+  }
 }
 ```
 apikey 将被写入环境变量中, 否则fundebug将不能正常使用, 引入fundeub, 可参考example, 和[fundebug文档](https://docs.fundebug.com/notifier/javascript/), example 已有基本使用方法
@@ -118,7 +121,7 @@ apikey 将被写入环境变量中, 否则fundebug将不能正常使用, 引入f
 
 - 新增sourcemap上传功能
 
-上传sourcemap 之前, 请先打包, 执行`yarn build`. 参考example, 使用方式同build/start, `root/scripts` 新增`uploader.js`
+上传sourcemap 之前, 请先打包, 执行`yarn build`. 参考example, 使用方式同`build/start`, `root/scripts` 新增`uploader.js`
 ```
 const { SourceMapUploader } = require('@freshes/house/src/Runners/SourceMapUploader')
 
@@ -136,4 +139,4 @@ new SourceMapUploader()
 
 `yarn upload` 即可.
 
-脚本拷贝 `dist/static/js` 中分散`.map`文件至`dist/sourcemap`文件夹中, 请勿上传sourcemap至公网服务器
+脚本拷贝 `dist/static/js` 中分散的`.map`文件至`dist/sourcemap`文件夹中, 请勿上传sourcemap至正式环境服务器
