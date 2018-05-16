@@ -6,7 +6,7 @@ const chalk = require('chalk')
 const moveSourceMapFiles = require('./moveSourceMapFiles')
 const uploadSourceMapFiles = require('./uploadSourceMapFiles')
 
-module.exports = ({ webpack, builtDirectory, useErrorTrack }) => {
+module.exports = ({ webpack, builtDirectory }) => {
   var spinner = ora('building for production...')
   spinner.start()
 
@@ -28,10 +28,6 @@ module.exports = ({ webpack, builtDirectory, useErrorTrack }) => {
         '  Tip: built files are meant to be served over an HTTP server.\n' +
         '  Opening index.html over file:// won\'t work.\n'
       ))
-      console.log(chalk.green('Begin to copy sourcemap'))
-      moveSourceMapFiles(builtDirectory)
-      console.log(chalk.green('copy sourcemap complete!'))
-      useErrorTrack && uploadSourceMapFiles(builtDirectory)
     })
   })
 }
