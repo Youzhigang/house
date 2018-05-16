@@ -17,6 +17,7 @@
     "dev": "node ./example/scripts/development.js",
     "build": "node ./example/scripts/production.js",
     "server": "node ./example/scripts/server.js",
+    "upload": "node ./example/scripts/uploader.js",
     "test": "yarn run lint && jest",
     "lint": "eslint --no-ignore scripts src",
     "docs": "jsdoc -r -c ./docs/jsdoc.json"
