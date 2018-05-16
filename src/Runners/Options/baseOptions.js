@@ -70,14 +70,15 @@ module.exports = {
    * production gzip extensions
    * @type {Array}
    */
-  productionGzipExtensions: ['js', 'css'],
+  productionGzipExtensions: [ 'js', 'css' ],
 
   /**
    * analyzer report
    * @private
    * @type {Boolean}
    */
-  bundleAnalyzerReport: process.env.BUNDLE_REPORT || process.env.npm_config_report,
+  bundleAnalyzerReport:
+    process.env.BUNDLE_REPORT || process.env.npm_config_report,
 
   /**
    * enable human rule
@@ -87,5 +88,11 @@ module.exports = {
   /**
    *
    */
-  sassResources: undefined
+  sassResources: undefined,
+
+  sourceMapDist: '',
+
+  fundebug: {
+    apiKey: ''
+  }
 }
