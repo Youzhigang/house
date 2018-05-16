@@ -67,3 +67,31 @@ new DevelopmentRunner().extend(runner => {
 ```
 新增 VERSION_HASH 的环境的变量，默认取当前 git commit 的 hash 值。
 ```
+
+## webpack externals
+
+新增webpack externals
+
+```javascript
+externals: {
+  vue: 'vue',
+  vuex: 'vuex',
+  'vue-router': 'vue-router'
+}
+```
+
+webpack 不会打包 external中的类库, 减少js bundle 体积
+当你使用
+`
+import Vue from 'vue'
+`
+时, webpack会引入`window.vue`, 所以必须在template 即`index.html`中引入相关cdn
+example
+
+```html
+<head>
+  <script src=//static.34580.cn/cn/public/vue/2.5.3/vue.min.js></script>
+  <script src=//static.34580.cn/cn/public/vue-router/3.0.0/vue-router.min.js></script>
+  <script src=//static.34580.cn/cn/public/vuex/3.0.0/vuex.min.js></script>
+</head>
+```
