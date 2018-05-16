@@ -92,6 +92,11 @@ module.exports = {
 
   sourceMapDist: '',
 
+  /**
+   * use error track or not
+   */
+  useErrorTrack: true,
+
   fundebug: {
     apiKey: ''
   }

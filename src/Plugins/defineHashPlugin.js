@@ -17,7 +17,7 @@ module.exports = runner => {
   process.env.VERSION_HASH = process.env.VERSION_HASH || hash
 
   // Define fundebug apiKey
-  if (!runner.options.fundebug.apiKey) {
+  if (runner.options.useErrorTrack && !runner.options.fundebug.apiKey) {
     console.log(JSON.stringify(runner.options))
     throw new Error('fundebug apiKey is undefined')
     return
