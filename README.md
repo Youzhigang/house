@@ -74,9 +74,9 @@ new DevelopmentRunner().extend(runner => {
 
 ```javascript
 externals: {
-  vue: 'vue',
-  vuex: 'vuex',
-  'vue-router': 'vue-router'
+  vue: 'Vue',
+  vuex: 'Vuex',
+  'vue-router': 'VueRouter'
 }
 ```
 
@@ -94,4 +94,32 @@ example
   <script src=//static.34580.cn/cn/public/vue-router/3.0.0/vue-router.min.js></script>
   <script src=//static.34580.cn/cn/public/vuex/3.0.0/vuex.min.js></script>
 </head>
+```
+
+使用externals 方法:
+ 1. 升级house `yarn add @freshes/house@next`
+
+ 2. 扩展`runner`的`extend`方法
+
+```javascript
+const ProductionRunner = require('@freshes/house/src/Runners/ProductionRunner')
+
+new ProductionRunner()
+  .setOptions(require('./configs/options'))
+  .setProxy(require('./configs/proxy'))
+  .setAppEnvs({
+    ...require('./configs/appEnvs'),
+    NODE_ENV: 'production'
+  })
+  .extend(runner => {
+    const config = runner.webpackBuilder.create() // webpack config
+    const externals = {
+      ...config.externals,
+      vue: 'Vue',
+      vuex: 'Vuex',
+      'vue-router': 'VueRouter'
+    }
+    config.externals = externals
+  }).run()
+
 ```
