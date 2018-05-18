@@ -16,9 +16,9 @@ class WebpackBuilder {
       },
       plugins: [],
       externals: {
-        vue: 'vue',
-        vuex: 'vuex',
-        'vue-router': 'vue-router'
+        vue: 'Vue',
+        vuex: 'Vuex',
+        'vue-router': 'VueRouter'
       }
     }
   }
