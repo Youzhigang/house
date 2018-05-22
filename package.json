@@ -1,6 +1,6 @@
 {
   "name": "@freshes/house",
-  "version": "1.2.2",
+  "version": "3.0.0-alpha.2",
   "description": "House for developing and using freshes components.",
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
     "lint": "eslint --no-ignore scripts src",
     "docs": "jsdoc -r -c ./docs/jsdoc.json"
   },
+  "main": "src/index.js",
   "files": [
     "src"
   ],
@@ -50,6 +51,7 @@
     "cross-env": "^5.1.1",
     "css-loader": "^0.28.7",
     "eslint": "^4.11.0",
+    "eslint-config-prettier": "^2.9.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^1.9.0",

@@ -6,9 +6,11 @@ module.exports = runner => {
 
   // Get git commit hash
   try {
-    hash = execSync('git rev-parse --short HEAD').toString().trim()
+    hash = execSync('git rev-parse --short HEAD')
+      .toString()
+      .trim()
   } catch (err) {
-    console.log('The package isn\'t a git repository.')
+    console.log("The package isn't a git repository.")
   }
 
   // Define node process env

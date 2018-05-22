@@ -14,7 +14,12 @@ class WebpackBuilder {
       module: {
         rules: []
       },
-      plugins: []
+      plugins: [],
+      externals: {
+        vue: 'Vue',
+        vuex: 'Vuex',
+        'vue-router': 'VueRouter'
+      }
     }
   }
 
@@ -82,8 +87,9 @@ class WebpackBuilder {
    * @param {Array} extensions
    */
   addExtensions (extensions) {
-    this.webpack.resolve.extensions = this
-      .webpack.resolve.extensions.concat(extensions)
+    this.webpack.resolve.extensions = this.webpack.resolve.extensions.concat(
+      extensions
+    )
     return this
   }
 
@@ -103,8 +109,7 @@ class WebpackBuilder {
    * @return {this}
    */
   addRules (rules) {
-    this.webpack.module.rules = this
-      .webpack.module.rules.concat(rules)
+    this.webpack.module.rules = this.webpack.module.rules.concat(rules)
     return this
   }
 
@@ -124,8 +129,7 @@ class WebpackBuilder {
    * @return {this}
    */
   addPlugins (plugins) {
-    this.webpack.plugins = this
-      .webpack.plugins.concat(plugins)
+    this.webpack.plugins = this.webpack.plugins.concat(plugins)
     return this
   }
 }

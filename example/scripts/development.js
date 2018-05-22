@@ -1,4 +1,4 @@
-const DevelopmentRunner = require('../../src/Runners/DevelopmentRunner')
+const { DevelopmentRunner } = require('../../src')
 
 new DevelopmentRunner()
   .setOptions(require('./configs/options'))

@@ -1,5 +1,6 @@
 const BaseRunner = require('./BaseRunner')
 const productionOptions = require('./Options/productionOptions')
+const productionAppEnvs = require('./Options/productionAppEnvs')
 
 class ProductionRunner extends BaseRunner {
   /**
@@ -7,9 +8,10 @@ class ProductionRunner extends BaseRunner {
    * @param  {*} args
    * @return {this}
    */
-  constructor (...args) {
+  constructor(...args) {
     super(...args)
     this.options = Object.assign({}, this.options, productionOptions)
+    this.appEnvs = Object.assign({}, this.appEnvs, productionAppEnvs)
   }
 
   /**
@@ -17,7 +19,7 @@ class ProductionRunner extends BaseRunner {
    * @protected
    * @return {this}
    */
-  initialization () {
+  initialization() {
     super.initialization()
 
     this.webpackBuilder.merge({
@@ -32,7 +34,9 @@ class ProductionRunner extends BaseRunner {
           this.options.publicPath
         ),
         filename: this.parseAssetsFilename('js/[name].[chunkhash].js'),
-        sourceMapFilename: this.parseAssetsFilename('js/[name].js.map'),
+        sourceMapFilename: this.parseAssetsFilename(
+          'js/[name].[chunkhash].js.map'
+        ),
         chunkFilename: this.parseAssetsFilename('js/[id].[chunkhash].js')
       }
     })
@@ -62,7 +66,7 @@ class ProductionRunner extends BaseRunner {
     return this
   }
 
-  parseAssetsFilename (relativePath) {
+  parseAssetsFilename(relativePath) {
     return this.path.posix.join(this.options.assetsPath, relativePath)
   }
 
@@ -70,7 +74,7 @@ class ProductionRunner extends BaseRunner {
    * Run runner
    * @return {*}
    */
-  run () {
+  run() {
     super.run()
     return require('../Utils/buildProd').call(this, {
       webpack: this.webpackBuilder.create(),

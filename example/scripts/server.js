@@ -1,4 +1,4 @@
-const ServerRunner = require('../../src/Runners/ServerRunner')
+const { ServerRunner } = require('../../src')
 
 new ServerRunner()
   .setOptions(require('./configs/options'))

@@ -16,7 +16,7 @@ class BaseRunner {
    * @constructor
    * @param {Object} options some options
    */
-  constructor (options) {
+  constructor(options) {
     this.path = path
     this.options = baseOptions
     this.appEnvs = {}
@@ -30,7 +30,7 @@ class BaseRunner {
    * @param {Object} options
    * @return {this}
    */
-  setOptions (options) {
+  setOptions(options) {
     this.options = Object.assign({}, this.options, options)
     return this
   }
@@ -46,7 +46,7 @@ class BaseRunner {
    * @param {Object} appEnvs
    * @return {this}
    */
-  setAppEnvs (appEnvs) {
+  setAppEnvs(appEnvs) {
     this.appEnvs = Object.assign({}, this.appEnvs, appEnvs)
     return this
   }
@@ -56,7 +56,7 @@ class BaseRunner {
    * @param {Object} proxyMaps
    * @return {this}
    */
-  setProxy (proxyMaps) {
+  setProxy(proxyMaps) {
     this.proxyMaps = Object.assign({}, this.proxyMaps, proxyMaps)
     return this
   }
@@ -70,7 +70,7 @@ class BaseRunner {
    * @param  {BaseRunner~extendCallback} callback Some runner extended
    * @return {this}
    */
-  extend (callback) {
+  extend(callback) {
     if (!this.initialized) this.initialization()
     callback.call(this, this)
     return this
@@ -82,7 +82,7 @@ class BaseRunner {
    * @param  {Function} callback
    * @return {*} Callback call return
    */
-  use (callback) {
+  use(callback) {
     return callback.call(this, this)
   }
 
@@ -91,26 +91,30 @@ class BaseRunner {
    * @protected
    * @return {this}
    */
-  initialization () {
+  initialization() {
     this.initialized = true // 完成初始化
 
-    this.webpackBuilder.merge({entry: {
-      app: this.path.join(
-        this.options.moduleDirectory,
-        this.options.appPath,
-        'main.js'
-      )
-    }})
+    this.webpackBuilder.merge({
+      entry: {
+        app: this.path.join(
+          this.options.moduleDirectory,
+          this.options.appPath,
+          'main.js'
+        )
+      }
+    })
 
-    this.webpackBuilder.merge({output: {
-      path: this.path.join(
-        this.options.moduleDirectory,
-        this.options.builtPath,
-        this.options.publicPath
-      ),
-      filename: '[name].js',
-      publicPath: this.path.posix.join(this.options.publicPath)
-    }})
+    this.webpackBuilder.merge({
+      output: {
+        path: this.path.join(
+          this.options.moduleDirectory,
+          this.options.builtPath,
+          this.options.publicPath
+        ),
+        filename: '[name].js',
+        publicPath: this.path.posix.join(this.options.publicPath)
+      }
+    })
 
     this.webpackBuilder.addExtensions(['.js', '.vue', '.json'])
 
@@ -127,7 +131,9 @@ class BaseRunner {
       this.webpackBuilder.addRule(this.use(require('../Rules/humanRule')))
     }
 
-    this.webpackBuilder.addPlugin(this.use(require('../Plugins/defineHashPlugin')))
+    this.webpackBuilder.addPlugin(
+      this.use(require('../Plugins/defineHashPlugin'))
+    )
     this.webpackBuilder.addPlugin(this.use(require('../Plugins/definePlugin')))
 
     return this
@@ -137,7 +143,7 @@ class BaseRunner {
    * Important method for extended class
    * @return {this}
    */
-  run () {
+  run() {
     if (!this.initialized) this.initialization()
     return this
   }
